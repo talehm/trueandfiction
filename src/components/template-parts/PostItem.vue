@@ -1,52 +1,69 @@
-<template>
-  <article class="post">
-    <responsive-image
-      v-if="post.featured_media"
-      class="post__featured-media"
-      :media-id="post.featured_media"
-      :sizes="'(max-width: 680px) 40vw, 400px'"
-    />
-    <div class="post__content">
-      <h2>
-        <a 
-          :href="post.link"
-          :title="post.title.rendered"
-          v-html="post.title.rendered"
-        ></a>
-      </h2>
-      <post-meta :post="post" />
-      <div v-html="post.excerpt.rendered"></div>
-      <post-taxonomies :post="post" />
-    </div>
-  </article>
-</template>
 
+<template>
+
+  <v-card
+    :loading="loading"
+    elevation="7"
+    outlined
+    class="ma-4"
+    @click="openArticle(post.link)"
+  >
+    <!-- <template slot="progress">
+      <v-progress-linear
+        color="deep-purple"
+        height="20"
+        indeterminate
+      ></v-progress-linear>
+    </template> -->
+
+    <v-card-title>
+      <a :title="post.title.rendered" v-html="post.title.rendered"></a
+    ></v-card-title>
+
+    <v-card-subtitle>
+      <div v-html="post.excerpt.rendered"></div>
+      <post-meta :post="post" />
+    </v-card-subtitle>
+
+    <!-- <v-card-actions>
+      <v-btn color="deep-purple lighten-2" text @click="reserve">
+        Reserve
+      </v-btn>
+    </v-card-actions> -->
+  </v-card>
+
+
+</template>
 <script>
-import ResponsiveImage from '@/components/utility/ResponsiveImage'
-import PostMeta from '@/components/utility/PostMeta'
-import PostTaxonomies from '@/components/utility/PostTaxonomies'
+import ResponsiveImage from "@/components/utility/ResponsiveImage";
+import PostMeta from "@/components/utility/PostMeta";
+import PostTaxonomies from "@/components/utility/PostTaxonomies";
 
 export default {
-  name: 'PostItem',
+  name: "PostItem",
   components: {
     ResponsiveImage,
     PostMeta,
-    PostTaxonomies
+    PostTaxonomies,
   },
   props: {
     post: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+  methods: {
+    openArticle(link) {
+      window.open(link, "_blank", "noreferrer");
+    },
+  },
+};
 </script>
 
 <style>
-
 .post {
   display: flex;
   flex-flow: row-reverse nowrap;
@@ -71,7 +88,7 @@ export default {
   left: 50%;
   min-height: 100%;
   min-width: 100%;
-  transform: translate3d(-50%,-50%,0);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 .post__content {
@@ -84,8 +101,12 @@ export default {
   margin-top: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media (max-width: 680px) {
-  .post { 
+  .post {
     flex-flow: row wrap;
   }
   .post__featured-media {
@@ -94,5 +115,4 @@ export default {
     margin: 0 0 2rem 0;
   }
 }
-
 </style>

@@ -9,6 +9,12 @@ function categorySlugFromParams({ cat1, cat2, cat3 }) {
   }
 }
 
+function definitionSlugFromParams({ definition_slug, definition }) {
+if(definition && definition !== 'page') {
+    return definition
+}
+}
+
 function pageFromPath(path) {
   let p = path.split('/').filter(i => i)
   if (p.length > 1 && p[p.length - 2] === 'page') {

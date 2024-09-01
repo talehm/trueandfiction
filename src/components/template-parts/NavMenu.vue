@@ -1,32 +1,36 @@
 <template>
-  <nav>
-    <a
-      v-for="item in menu"
-      :key="item.id"
-      :href="item.url"
-      :target="item.target"
-      :title="item.title"
-      v-html="item.content"
-    ></a>
-  </nav>
+  <v-tabs right class="mr-16" color="grey darken-1">
+    <v-tab v-for="(item,i) in menu" :key="i">
+      <!-- {{ link }} -->
+      <!-- {{ item.content }} -->
+      <a
+        :href="item.url"
+        :target="item.target"
+        :title="item.title"
+        v-html="item.content"
+      ></a>
+    </v-tab>
+  </v-tabs>
 </template>
+
 
 <script>
 export default {
-  name: 'NavMenu',
+  name: "NavMenu",
   props: {
     name: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
-    menu() {
-      return this.$store.getters.menu({ name: this.name })
-    }
-  }
-}
+	  menu() {
+		console.log(this.name);
+      return this.$store.getters.menu({ name: this.name });
+    },
+  },
+};
 </script>

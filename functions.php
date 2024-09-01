@@ -18,6 +18,8 @@ function vue_wordpress_setup()
 
     register_nav_menus( array(
         'main' => 'Main Menu',
+		'languages' => __( 'Languages' )
+
     ) );
 
 }
@@ -30,18 +32,18 @@ add_action( 'after_setup_theme', 'vue_wordpress_setup' );
 
 function vue_wordpress_scripts()
 {
-    // Styles
-    wp_enqueue_style( 'style.css', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style('vue_wordpress.css', get_template_directory_uri() . '/dist/vue-wordpress.css');
+     // Styles
+	 wp_enqueue_style( 'style.css', get_template_directory_uri() . '/style.css' );
+	 wp_enqueue_style('vue_wordpress.css', get_template_directory_uri() . '/dist/vue-wordpress.css');
 
-    // Scripts
+	 // Scripts
 
-    // Enable For Production - Disable for Development
-    wp_enqueue_script('vue_wordpress.js', get_template_directory_uri() . '/dist/vue-wordpress.js', array(), null, true);
+	 // Enable For Production - Disable for Development
+	//  wp_enqueue_script('vue_wordpress.js', get_template_directory_uri() . '/dist/vue-wordpress.js', array(), null, true);
 
-    // Enable For Development - Remove for Production
-    // wp_enqueue_script( 'vue_wordpress.js', 'http://localhost:8080/vue-wordpress.js', array(), false, true );
-}
+	 // Enable For Development - Remove for Production
+	 wp_enqueue_script( 'vue_wordpress.js', 'http://localhost:8080/vue-wordpress.js', array(), false, true );
+ }
 
 add_action( 'wp_enqueue_scripts', 'vue_wordpress_scripts' );
 
@@ -63,6 +65,7 @@ if ( !class_exists( 'RADL' ) ) {
 new RADL( '__VUE_WORDPRESS__', 'vue_wordpress.js', array(
     'routing' => RADL::callback( 'vue_wordpress_routing' ),
     'state' => array(
+        'definition' => RADL::endpoint( 'definition' ),
         'categories' => RADL::endpoint( 'categories'),
         'media' => RADL::endpoint( 'media' ),
         'menus' => RADL::callback( 'vue_wordpress_menus' ),
@@ -71,6 +74,7 @@ new RADL( '__VUE_WORDPRESS__', 'vue_wordpress.js', array(
         'tags' => RADL::endpoint( 'tags' ),
         'users' => RADL::endpoint( 'users' ),
         'site' => RADL::callback( 'vue_wordpress_site' ),
+        // 'words' => RADL::endpoint( 'definition')
     ),
 ) );
 
@@ -105,7 +109,6 @@ function vue_wordpress_routing()
         }
 
     }
-
     return $routing;
 }
 
@@ -146,7 +149,7 @@ function vue_wordpress_site()
         'docTitle' => '',
         'loading' => false,
         'logo' => get_theme_mod( 'custom_logo' ),
-        'name' => get_bloginfo( 'name' ),
+        'name' => "mystudies.com",
         'posts_per_page' => get_option( 'posts_per_page' ),
         'url' => get_bloginfo( 'url' )
     );
@@ -165,6 +168,39 @@ function vue_wordpress_min_read( $content )
     if ( is_float( $time ) ) {
         $time = ceil( $time );
     }
-   
+
     return $time . 'min read';
 }
+
+
+// function my_shortcode() {
+//     $shortcode_output = '<button id="my-element" v-click="myMethod">Click me!</button>';
+//     return $shortcode_output;
+//   }
+// add_shortcode('my_shortcode', 'my_shortcode');
+
+function fontawesome_shortcode($atts) {
+    $atts = shortcode_atts( array(
+        'name' => '',
+        'prefix' => 'fas',
+        'id' => '',
+    ), $atts );
+
+    $icon_html = '<i class="' . esc_attr($atts['prefix']) . ' fa-' . esc_attr($atts['name']) . '"';
+    if (!empty($atts['id'])) {
+        $icon_html .= ' id="' . esc_attr($atts['id']) . '"';
+    }
+    $icon_html .= '></i>';
+
+    return $icon_html;
+}
+add_shortcode('icon', 'fontawesome_shortcode');
+
+// Define a function to remove the wptexturize filter
+function remove_wptexturize_filter() {
+    remove_filter( 'the_content', 'wptexturize' );
+    remove_filter( 'the_title', 'wptexturize' );
+}
+
+// Add an action to run the function when WordPress initializes
+add_action( 'init', 'remove_wptexturize_filter' );

@@ -8,42 +8,43 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Page',
+  name: "Page",
   props: {
     slug: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       request: {
-        type: 'pages',
+        type: "pages",
         slug: this.slug,
-        showLoading: true 
-      }
-    }
+        showLoading: true,
+      },
+    };
   },
   computed: {
     page() {
-      return this.$store.getters.singleBySlug(this.request)
-    }
+      return this.$store.getters.singleBySlug(this.request);
+    },
   },
   methods: {
-    getPage () {
-        this.$store.dispatch('getSingleBySlug', this.request).then(() => {
-          if (this.page) {
-            this.$store.dispatch('updateDocTitle', { parts: [ this.page.title.rendered, this.$store.state.site.name] })
-          } else {
-            this.$router.replace('/404')
-          }
-        })
-      }
+    getPage() {
+      this.$store.dispatch("getSingleBySlug", this.request).then(() => {
+        if (this.page) {
+          this.$store.dispatch("updateDocTitle", {
+            parts: [this.page.title.rendered, this.$store.state.site.name],
+          });
+        } else {
+          // this.$router.replace('/404')
+        }
+      });
+    },
   },
-  created () {
-    this.getPage()
-  }
-}
+  created() {
+    this.getPage();
+  },
+};
 </script>

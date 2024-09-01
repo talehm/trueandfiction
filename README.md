@@ -451,7 +451,7 @@ get_footer();
         <?php wp_head(); ?>
     </head>
     <body>
-        <div id="vue-wordpress-app">
+        <div id="app">
 ````
 **footer.php**
 ````html

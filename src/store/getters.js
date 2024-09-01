@@ -20,7 +20,8 @@ export default {
   singleBySlug: state => ({ type, slug }) => {
     for (let id in state[type]) {
       if (decodeURI(state[type][id].slug) === slug) {
-        return state[type][id]
+        console.log(state[type][id]);
+        return state[type][id];
       }
     }
   },

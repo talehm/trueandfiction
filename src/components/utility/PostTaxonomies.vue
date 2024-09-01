@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div
+    <!-- <div
       v-if="post.categories.length"
       class="categories"
     >
@@ -11,11 +11,8 @@
         archive-type="categories"
         :archive-id="category"
       />
-    </div>
-    <div
-      v-if="post.tags.length"
-      class="tags"
-    >
+    </div> -->
+    <div v-if="post.tags.length" class="tags">
       <span>Tagged:</span>
       <archive-link
         v-for="tag in post.tags"
@@ -28,28 +25,26 @@
 </template>
 
 <script>
-import ArchiveLink from '@/components/utility/ArchiveLink'
+import ArchiveLink from "@/components/utility/ArchiveLink";
 
 export default {
-  name: 'PostTaxonomies',
+  name: "PostTaxonomies",
   components: { ArchiveLink },
   props: {
     post: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
-    return {}
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style>
-
-.categories>a,
-.tags>a {
-  margin: 0 .4rem;
+.categories > a,
+.tags > a {
+  margin: 0 0.4rem;
 }
-
 </style>

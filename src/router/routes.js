@@ -6,6 +6,9 @@ import DateArchive from '@/components/DateArchive'
 import CategoryArchive from '@/components/CategoryArchive'
 import TagArchive from '@/components/TagArchive'
 import Single from '@/components/Single'
+import SingleDefinition from '@/components/SingleDefinition'
+import Languages from '@/components/Language';
+
 import Page from '@/components/Page'
 // Route paths as formatted in WP permalink settings
 import paths from './paths'
@@ -14,7 +17,6 @@ import {
   categorySlugFromParams,
   pageFromPath
 } from './utils'
-
 
 const { show_on_front, page_for_posts, page_on_front } = __VUE_WORDPRESS__.routing
 
@@ -61,7 +63,10 @@ export default [
     path: paths.categoryArchive,
     component: CategoryArchive,
     name: 'CategoryArchive',
-    props: route =>  (Object.assign(route.params, { slug: categorySlugFromParams(route.params), page: pageFromPath(route.path) } ))
+    props: (route)=>  {
+      return Object.assign(route.params, { slug: categorySlugFromParams(route.params), page: pageFromPath(route.path) } )
+
+  }
   },
   {
     path: paths.tagArchive,
@@ -70,11 +75,23 @@ export default [
     props: route => (Object.assign(route.params, { page: pageFromPath(route.path) }))
   },
   {
+    path: paths.definition,
+    component: SingleDefinition,
+    name: 'Definition',
+    props: route => ({ slug: route.params.slug })
+	},
+    {
+		path: paths.languages,
+		component: Languages,
+		name: 'Language',
+	  },
+  {
     path: paths.single,
     component: Single,
     name: 'Single',
     props: route => ({ slug: route.params.slug }),
   },
+
   /**
    * This also functions as a catch all redirecting
    * to 404 if a page isn't found with slug prop
