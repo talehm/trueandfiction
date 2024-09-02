@@ -1,6 +1,6 @@
 <template>
 	<v-btn fab
-
+	class="right"
       small @click="toggleTheme" >
 		<v-icon class="" v-if="$vuetify.theme.dark">fa4 fa-solid fa-sun</v-icon>
 		<v-icon class="" v-else>fa4 fa-solid fa-moon</v-icon>

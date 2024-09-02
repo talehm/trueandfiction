@@ -66,11 +66,11 @@ import he from 'he';
 import ResponsiveImage from "@/components/utility/ResponsiveImage";
 import PostMeta from "@/components/utility/PostMeta";
 import PostTaxonomies from "@/components/utility/PostTaxonomies";
-import defaultMixin from "@/components/mixins/default";
+import speechMixin from "@/components/mixins/speech";
 import definition from "@/components/utility/definition";
 export default {
     name: "Single-Definition",
-    mixins: [defaultMixin],
+    mixins: [speechMixin],
     components: {
         ResponsiveImage,
         PostMeta,

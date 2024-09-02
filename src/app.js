@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify' // path to vuetify export
 import './styles/popup.css';
 import './styles/styles.less';
 import Theme from './components/Theme.vue'; // Path to your theme switcher component
+import helpers from "./_helpers";
 
 
 new Vue({
@@ -20,7 +21,8 @@ new Vue({
   },
   data() {
 		return {
-			tools: tools,
+			tools,
+			helpers
 		};
 	},
 	methods: {

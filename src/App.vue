@@ -29,7 +29,7 @@
 				<img v-if="logo" class="logo" :src="logo.source_url" :alt="logo.alt_text" />
 				<span>{{ site.name }}</span>
 			</div>
-			<nav-menu name="main" />
+			<!-- <nav-menu name="main" /> -->
 			<Theme />
 		</v-app-bar>
 		<!-- <v-main class="light-grey lighten-3 d-flex justify-center align-center " > -->

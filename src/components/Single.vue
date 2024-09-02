@@ -51,10 +51,10 @@ import PostTaxonomies from "@/components/utility/PostTaxonomies";
 import BriefDefinition from "@/components/utility/BriefDefinition";
 import testspeech from "@/components/utility/testspeech";
 
-import defaultMixin from "@/components/mixins/default";
+import speechMixin from "@/components/mixins/speech";
 export default {
   name: "Single",
-  mixins: [defaultMixin],
+  mixins: [speechMixin],
   components: {
     ResponsiveImage,
     PostMeta,

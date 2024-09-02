@@ -25,6 +25,22 @@ function vue_wordpress_setup()
 }
 
 add_action( 'after_setup_theme', 'vue_wordpress_setup' );
+function custom_category_rewrite_rules($rules) {
+    $new_rules = array(
+        'stories/(.+)/?$' => 'index.php?category_name=' . $wp_rewrite->preg_index(1),
+    );
+    return $new_rules + $rules;
+}
+add_filter('rewrite_rules_array', 'custom_category_rewrite_rules');
+
+function custom_category_link($termlink, $term, $taxonomy) {
+    if ($taxonomy === 'category') {
+        $termlink = str_replace('/category', '', $termlink);
+
+    }
+    return $termlink;
+}
+add_filter('term_link', 'custom_category_link', 10, 3);
 
 /**
  * Load scripts and styles

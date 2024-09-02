@@ -5,7 +5,7 @@
     :loading="loading"
     elevation="7"
     outlined
-    class="ma-4"
+    class="ma-2"
     @click="openArticle(post.link)"
   >
     <!-- <template slot="progress">
