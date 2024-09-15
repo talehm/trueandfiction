@@ -26,8 +26,8 @@
     </div> -->
 		<v-app-bar absolute>
 			<div class="site-branding" @click="$router.push('/')">
-				<img v-if="logo" class="logo" :src="logo.source_url" :alt="logo.alt_text" />
-				<span>{{ site.name }}</span>
+				<img  class="logo" src="wp-content/uploads/2024/09/logo.png" alt="" />
+				<!-- <span>true</span><span>and</span><span>fiction</span> -->
 			</div>
 			<!-- <nav-menu name="main" /> -->
 			<Theme />
@@ -80,6 +80,7 @@ export default {
 				});
 			}
 		},
+
 	},
 	methods: {
 		getLinkEl(el) {
@@ -134,7 +135,7 @@ export default {
 .logo {
 	display: inline-block;
 	vertical-align: middle;
-	height: 4.8rem;
+	height: 9rem;
 	width: auto;
 	margin: 0 0.4rem 0 0;
 }

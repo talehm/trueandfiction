@@ -164,7 +164,7 @@ function vue_wordpress_site()
         'docTitle' => '',
         'loading' => false,
         'logo' => get_theme_mod( 'custom_logo' ),
-        'name' => "mystudies.com",
+        'name' => "trueandfiction.com",
         'posts_per_page' => get_option( 'posts_per_page' ),
         'url' => get_bloginfo( 'url' )
     );

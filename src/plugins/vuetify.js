@@ -10,7 +10,7 @@ const vuetify = new Vuetify({
 	theme: {
 		themes: {
 			light: {
-				primary: '#f5f5f5', // Customize these colors as needed
+				primary: 'steelblue', // Customize these colors as needed
 				secondary: '#424242',
 				accent: '#82B1FF',
 				error: '#FF5252',
