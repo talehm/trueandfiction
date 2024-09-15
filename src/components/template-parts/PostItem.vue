@@ -5,8 +5,9 @@
     :loading="loading"
     elevation="7"
     outlined
-    class="ma-2"
+    class="ma-2 post-item__card"
     @click="openArticle(post.link)"
+
   >
     <!-- <template slot="progress">
       <v-progress-linear
@@ -17,7 +18,7 @@
     </template> -->
 
     <v-card-title>
-      <a :title="post.title.rendered" v-html="post.title.rendered"></a
+      <a class="post-item__title" :title="post.title.rendered" v-html="post.title.rendered"></a
     ></v-card-title>
 
     <v-card-subtitle>

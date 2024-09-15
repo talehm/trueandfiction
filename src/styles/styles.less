@@ -75,7 +75,14 @@
 			color:var(--text-color) !important;
 		}
 	}
-	.story-card {
+	.story{
+		&-actions{
+			position: fixed;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&-card {
 		width: 300px;
 		height: auto;
 		cursor: pointer;
@@ -104,6 +111,7 @@
 
 
 	}
+}
   }
   .page-left .content {
 	/* padding:80px 30px; */
@@ -138,4 +146,20 @@ section {
 		// overflow: hidden; /* Optional: Prevent content overflow */
 		display: block; /* or inline-block */
 	  }
+}
+
+
+.post {
+	&-item {
+		&__title{
+			white-space: normal;
+			overflow-wrap: normal;
+			word-break: normal;
+			display: block;
+			width: 200px;
+		}
+		&__card{
+			height: 300px;
+		}
+	}
 }

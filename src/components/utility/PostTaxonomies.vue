@@ -12,8 +12,7 @@
         :archive-id="category"
       />
     </div> -->
-    <div v-if="post.tags.length" class="tags">
-      <span>Tagged:</span>
+    <div v-if="post.tags.length" class="tags d-flex">
       <archive-link
         v-for="tag in post.tags"
         :key="tag"
@@ -45,6 +44,6 @@ export default {
 <style>
 .categories > a,
 .tags > a {
-  margin: 0 0.4rem;
+  /* margin: 0 0.4rem; */
 }
 </style>

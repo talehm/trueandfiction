@@ -14,13 +14,12 @@ export default {
     return request ? request.totalPages : 0
   },
   requestedItems: (state, getters) => ({ type, params }) => {
-    let request = getters.request({ type, params })
+	let request = getters.request({ type, params })
     return request ? request.data.map(id => state[type][id]) : []
   },
   singleBySlug: state => ({ type, slug }) => {
     for (let id in state[type]) {
       if (decodeURI(state[type][id].slug) === slug) {
-        console.log(state[type][id]);
         return state[type][id];
       }
     }

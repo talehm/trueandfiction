@@ -2,7 +2,7 @@
   <a
     :href="link"
     :title="title"
-    v-html="title"
+    v-html="'#'+title"
   ></a>
 </template>
 

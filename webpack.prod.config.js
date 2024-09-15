@@ -11,7 +11,27 @@ module.exports = {
     filename: 'vue-wordpress.js'
   },
   module: {
-    rules: [
+	  rules: [
+		{
+			test: /\.(woff|woff2|eot|ttf|otf)$/, // Font file extensions
+			use: [
+				{
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]', // Preserve original file name and extension
+						outputPath: 'fonts/',  // Output directory for fonts
+					},
+				},
+			],
+		  },
+		  {
+			test: /\.less$/,
+			use: [
+				'style-loader',
+				'css-loader',
+				'less-loader'
+			]
+		},
       {
         test: /\.s(c|a)ss$/,
         use: [

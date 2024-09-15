@@ -22,7 +22,9 @@ new Vue({
   data() {
 		return {
 			tools,
-			helpers
+			helpers,
+			screenWidth: window.innerWidth,
+      		screenHeight: window.innerHeight,
 		};
 	},
 	methods: {
@@ -31,13 +33,30 @@ new Vue({
 			this.$vuetify.theme.dark = !currentTheme;
 			document.documentElement.setAttribute('data-theme', this.$vuetify.theme.dark ? 'dark' : 'light');
 			localStorage.setItem('theme', this.$vuetify.theme.dark ? 'dark' : 'light');
+		},
+		updateWindowSize() {
+			this.screenWidth = window.innerWidth;
+			this.screenHeight = window.innerHeight;
 		}
-	  },
+	},
+	computed: {
+		isMobile() {
+			return this.screenWidth < 768; // Define your breakpoints
+		  },
+		  isTablet() {
+			return this.screenWidth >= 768 && this.screenWidth <= 1024;
+		  },
+	},
 	  mounted() {
 		 // Set initial theme based on localStorage
 		 const savedTheme = localStorage.getItem('theme') || 'light';
 		 this.$vuetify.theme.dark = savedTheme === 'dark';
-		 document.documentElement.setAttribute('data-theme', savedTheme);
+		  document.documentElement.setAttribute('data-theme', savedTheme);
+		  window.addEventListener('resize', this.updateWindowSize);
+
+	},
+	beforeDestroy() {
+		window.removeEventListener('resize', this.updateWindowSize);
 	  },
 
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="responsive-image">
-    <transition 
+    <transition
       name="fade"
       :duration="1000"
     >
@@ -70,18 +70,15 @@ export default {
 <style>
 
 .responsive-image {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  background-color: #f8f8f8;
+  float:left;
+  padding-right:10px;
+  padding-bottom: 10px;
 }
 
 .responsive-image > img {
   display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
+  height: 200px;
+  /* max-width: 20%; */
 }
 
 </style>
-

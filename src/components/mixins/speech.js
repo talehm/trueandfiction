@@ -23,7 +23,7 @@ export default {
             const play = {
                 color: "success",
                 text: "Listen",
-				action: (text) => {
+				handle: (text) => {
 					const paragraphs = text.match(/<p>.*?<\/p>/g);
 					console.log(paragraphs);
 					// return paragraphs.forEach((p,i) => this.speak(p, i));
@@ -35,19 +35,19 @@ export default {
                 color: "info",
                 text: "Resume",
                 icon: "mdi-play",
-                action: () => { this.synth.resume(); },
+                handle: () => { this.synth.resume(); },
             };
             const pause = {
                 color: "info",
                 text: "Pause",
                 icon: "mdi-pause",
-                action: () => { this.synth.pause(); },
+                handle: () => { this.synth.pause(); },
             };
             const stop = {
                 color: "info",
                 text: "Stop",
                 icon: "mdi-stop-circle",
-                action: () => { this.clear(); },
+                handle: () => { this.clear(); },
             };
             return { play, resume, pause, stop };
         }
@@ -60,12 +60,33 @@ export default {
 			this.activeParagraph = 0;
 			this.addAction(this.actionList.play);
         },
-        addAction({ color, text, icon, action }) {
-            this.actions.push({ color, text, icon, action });
+        addAction({ color, text, icon, handle }) {
+            this.actions.push({ color, text, icon, handle });
         },
         onChangeSpeechAction(speechKey) {
             Object.keys(this.speech).forEach(key => this.$set(this.speech, key, key == speechKey));
-        },
+		},
+		highlightWord(word, wIndex, pIndex) {
+			const textContainer = this.$refs.textToRead;
+			const paragraphs = textContainer.getElementsByTagName('p');
+			let highlightedText = '';
+			const paragraph = paragraphs[pIndex];
+
+			// Find the <p> tag containing the active word
+			const paragraphText = paragraph.innerText;
+			console.log(paragraphText);
+			// const activeWord = paragraphText.slice(wIndex, paragraphText.indexOf(' ', wIndex));
+			const beforeWord = paragraphText.slice(0, wIndex + 1);
+			const afterWord = paragraphText.slice(wIndex + 1);
+			// Highlight all content inside the paragraph up to the active word
+			highlightedText = `<span style="background-color: yellow">${beforeWord}</span>`
+				+
+				afterWord;
+			console.log(beforeWord, "-----", afterWord, "----", word);
+
+			paragraph.innerHTML = highlightedText;
+
+		},
 		speak(paragraphs) {
 			try {
 				window.speechSynthesis.cancel();
