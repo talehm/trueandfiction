@@ -522,3 +522,5 @@ I do plan to extend the functionality of the theme depending on whether develope
 ## Final Thoughts
 
 I hope you found this documentation useful. If there are any other topics you would like me to cover, or need clarification on feel free to add an issue.
+#   t r u e a n d f i c t i o n  
+ 
