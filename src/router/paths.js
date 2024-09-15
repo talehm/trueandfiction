@@ -18,13 +18,13 @@ const tagToParam = {
 // If no category/tag base set WP uses base of singlePost permalink structure excluding tags
 const defaultTaxonomyBase = permalink_structure.slice(0, permalink_structure.indexOf('%'))
 // Appended to route paths with pagination
-console.log("AA",`/definition${permalink_structure.replace(/\%[a-z_]+\%/g, match => tagToParam[match.slice(1,-1)]).slice(0,-1)}`);
+// console.log("AA",`/definition${permalink_structure.replace(/\%[a-z_]+\%/g, match => tagToParam[match.slice(1,-1)]).slice(0,-1)}`);
 const paginateParam = ':page(page\/\\d+)?'
 export default {
   languages:'/languages/',
   definition: `/definition${permalink_structure.replace(/\%[a-z_]+\%/g, match => tagToParam[match.slice(1,-1)]).slice(0,-1)}`,
   authorArchive: `${defaultTaxonomyBase}author/:slug/${paginateParam}`,
-  categoryArchive: category_base ? `/${category_base}/${tagToParam.category}/${paginateParam}` : `/stories/${tagToParam.category}/${paginateParam}`,
+  categoryArchive: category_base ? `/${category_base}/${tagToParam.category}/${paginateParam}` : `/category/${tagToParam.category}/${paginateParam}`,
   dateArchive: `${defaultTaxonomyBase}:year(\\d{4})/:month(\\d{2})?/:day(\\d{2})?/${paginateParam}`,
   single: `${permalink_structure.replace(/\%[a-z_]+\%/g, match => tagToParam[match.slice(1,-1)]).slice(0,-1)}`,
   tagArchive: tag_base ? `/${tag_base}/:slug/${paginateParam}` : `${defaultTaxonomyBase}tag/:slug/${paginateParam}`,
