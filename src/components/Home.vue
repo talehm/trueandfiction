@@ -75,7 +75,7 @@ export default {
 			categoryRequest: {
 				type: "categories",
 				params: {
-					parent: null
+					parent: 3
 				}
 			},
 		}

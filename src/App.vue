@@ -26,7 +26,7 @@
     </div> -->
 		<v-app-bar absolute>
 			<div class="site-branding" @click="$router.push('/')">
-				<img  class="logo" src="wp-content/uploads/2024/09/logo.png" alt="" />
+				<img  class="logo" :src="this.site.url+'/wp-content/uploads/2024/09/logo.png'" alt="" />
 				<!-- <span>true</span><span>and</span><span>fiction</span> -->
 			</div>
 			<!-- <nav-menu name="main" /> -->
@@ -135,7 +135,7 @@ export default {
 .logo {
 	display: inline-block;
 	vertical-align: middle;
-	height: 9rem;
+	height: 4rem;
 	width: auto;
 	margin: 0 0.4rem 0 0;
 }

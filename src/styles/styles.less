@@ -1,6 +1,6 @@
 /* Default Light Theme */
 [data-theme='light'] {
-	--background-color: steelblue;
+	--background-color: #f2f2f2;
 	--text-color: #000000;
 	--link-color: #051924;
 	--branding: #051924;
@@ -43,6 +43,7 @@
   .v-application {
 	.container, section {
 		background-color: var(--background-color);
+
 	}
 	a {
 	color: var(--link-color) !important;
@@ -59,13 +60,13 @@
 			color: var(--branding) !important;
 		}
 	}
-	.v-toolbar {
-		background-color: var(--background-color) !important;
-	}
 	.v-btn{
 		&__content {
 			color:var(--link-color) !important;
 		}
+	}
+	.v-toolbar.v-sheet {
+		background-color: steelblue !important;
 	}
 	.v-card{
 		&__text{color:var(--card-text) !important;}
