@@ -1,5 +1,6 @@
 /* Default Light Theme */
 [data-theme='light'] {
+	--toolbar-color: steelblue;
 	--background-color: #f2f2f2;
 	--text-color: #000000;
 	--link-color: #051924;
@@ -18,7 +19,7 @@
   }
 
   [data-theme='dark'] {
-	// --background-color: #051924;
+	--toolbar-color: #1e1e1e;
 	--text-color: lightslategrey;
 	--card-text: #b6c0c8;
 	--link-color: #b6c0c8;
@@ -66,7 +67,8 @@
 		}
 	}
 	.v-toolbar.v-sheet {
-		background-color: steelblue !important;
+		background-color: var(--toolbar-color) !important;
+
 	}
 	.v-card{
 		&__text{color:var(--card-text) !important;}
