@@ -24,9 +24,10 @@ export default {
                 color: "success",
                 text: "Listen",
 				handle: (text) => {
-					const paragraphs = text.match(/>.*?</g);
-					// return paragraphs.forEach((p,i) => this.speak(p, i));
-					console.log(paragraphs, text);
+					const paragraphs = text.match(/>.*?</g)
+						.map(p => p.slice(1, -1))
+						.filter(p => p.trim() !== '');
+
                     return this.speak(paragraphs);
                 },
                 icon: "fa4 fa-solid fa-play",
@@ -70,19 +71,18 @@ export default {
 			const textContainer = this.$refs.textToRead;
 			const paragraphs = textContainer.getElementsByTagName('p');
 			let highlightedText = '';
-			const paragraph = paragraphs[pIndex];
+			const paragraph = Array.from(paragraphs).filter(e=>e.innerText.trim()!=='')[pIndex];
 
 			// Find the <p> tag containing the active word
 			const paragraphText = paragraph.innerText;
-			console.log(paragraphText);
 			// const activeWord = paragraphText.slice(wIndex, paragraphText.indexOf(' ', wIndex));
 			const beforeWord = paragraphText.slice(0, wIndex + 1);
 			const afterWord = paragraphText.slice(wIndex + 1);
+
 			// Highlight all content inside the paragraph up to the active word
 			highlightedText = `<span style="background-color: yellow">${beforeWord}</span>`
 				+
 				afterWord;
-			console.log(beforeWord, "-----", afterWord, "----", word);
 
 			paragraph.innerHTML = highlightedText;
 
@@ -108,8 +108,6 @@ export default {
 
 					const utterance = new SpeechSynthesisUtterance(text);
 					utterance.voice = selectedVoice;
-
-
 
 					const words = text.split(' ');
 					let index = 0;

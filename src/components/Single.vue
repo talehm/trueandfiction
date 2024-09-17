@@ -161,7 +161,6 @@ export default {
 			return this.$store.dispatch("getItems", this.catRequest);
 		},
 		handle(action) {
-			console.log(action);
 			if (action.text == 'Listen') action.handle(this.post.content.rendered)
 			else action.handle();
 		},
@@ -179,7 +178,6 @@ export default {
 				this.briefDefinition.isOpen = true;
 			} else {
 				this.$store.dispatch("getBriefDefinition", text).then((response) => {
-					console.log(response, text);
 					if (response.brief !== "" && response.brief != null) {
 						this.briefDefinition = {
 							content: response,
@@ -211,7 +209,6 @@ export default {
 	watch: {
 		"speech.isStopped": {
 			handler(newValue) {
-				console.log(newValue, "isStopped");
 				if (newValue) {
 					const textContainer = this.$refs.textToRead;
 					textContainer.innerHTML = this.post.content.rendered;
