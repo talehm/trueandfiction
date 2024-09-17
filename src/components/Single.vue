@@ -26,7 +26,6 @@
 						<div class="text-caption pt-4 d-flex justify-space-between">
 							<post-taxonomies :post="post" />
 						</div>
-						<p class="text-center"> The End</p>
 					</v-card-text>
 				</article>
 			</v-card>
@@ -41,9 +40,11 @@ import BriefDefinition from "@/components/utility/BriefDefinition";
 import testspeech from "@/components/utility/testspeech";
 import tile from "./template-parts/Tile.vue";
 import defaultMixin from "@/components/mixins/default";
+import speechMixin from "@/components/mixins/speech";
+
 export default {
 	name: "Single",
-	mixins: [defaultMixin],
+	mixins: [defaultMixin,speechMixin],
 	components: {
 		ResponsiveImage,
 		PostMeta,
@@ -201,7 +202,6 @@ export default {
 		this.getPost().then(() => this.getPosts()).then(() => this.getCategories());
 	},
 	mounted() {
-		console.log(this.actionList.play);
 		this.addAction(this.actionList.play);
 	},
 	beforeUnmount() {

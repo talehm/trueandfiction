@@ -29,24 +29,24 @@ export default {
 					// return paragraphs.forEach((p,i) => this.speak(p, i));
                     return this.speak(paragraphs);
                 },
-                icon: "mdi-play",
+                icon: "fa4 fa-solid fa-play",
             };
             const resume = {
                 color: "info",
                 text: "Resume",
-                icon: "mdi-play",
+                icon: "fa4 fa-solid fa-play",
                 handle: () => { this.synth.resume(); },
             };
             const pause = {
                 color: "info",
                 text: "Pause",
-                icon: "mdi-pause",
+                icon: "fa4 fa-solid fa-pause",
                 handle: () => { this.synth.pause(); },
             };
             const stop = {
                 color: "info",
                 text: "Stop",
-                icon: "mdi-stop-circle",
+                icon: "fa4 fa-solid fa-stop",
                 handle: () => { this.clear(); },
             };
             return { play, resume, pause, stop };

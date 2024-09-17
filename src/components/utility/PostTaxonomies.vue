@@ -42,8 +42,7 @@ export default {
 </script>
 
 <style>
-.categories > a,
 .tags > a {
-  /* margin: 0 0.4rem; */
+  margin: 0 0.4rem;
 }
 </style>

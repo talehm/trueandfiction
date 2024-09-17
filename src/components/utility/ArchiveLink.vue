@@ -2,8 +2,7 @@
   <a
     :href="link"
     :title="title"
-    v-html="'#'+title"
-  ></a>
+  > #{{title}} </a>
 </template>
 
 <script>
@@ -33,7 +32,7 @@ export default {
       return this.item ? this.item.link : ''
     },
     title() {
-      return this.item ? this.item.name : ''
+      return this.item ? this.item.name+" " : ''
     }
   },
   methods: {
