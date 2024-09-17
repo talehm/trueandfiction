@@ -26,6 +26,7 @@ export default {
 				handle: (text) => {
 					const paragraphs = text.match(/<p>.*?<\/p>/g);
 					// return paragraphs.forEach((p,i) => this.speak(p, i));
+					console.log(paragraphs, text);
                     return this.speak(paragraphs);
                 },
                 icon: "fa4 fa-solid fa-play",
