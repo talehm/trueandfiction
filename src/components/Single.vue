@@ -161,6 +161,7 @@ export default {
 			return this.$store.dispatch("getItems", this.catRequest);
 		},
 		handle(action) {
+			console.log(action);
 			if (action.text == 'Listen') action.handle(this.post.content.rendered)
 			else action.handle();
 		},

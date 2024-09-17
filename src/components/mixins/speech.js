@@ -25,7 +25,6 @@ export default {
                 text: "Listen",
 				handle: (text) => {
 					const paragraphs = text.match(/<p>.*?<\/p>/g);
-					console.log(paragraphs);
 					// return paragraphs.forEach((p,i) => this.speak(p, i));
                     return this.speak(paragraphs);
                 },
@@ -157,14 +156,11 @@ export default {
 
 					utterance.onboundary = (event) => {
 						const activeWordIndex = event.charIndex;
-						console.log(utterance.text);
 						const activeWord = utterance.text.slice(activeWordIndex, utterance.text.indexOf(' ', activeWordIndex));
-						console.log(event.charIndex,activeWord, "event.charIndex");
 						this.highlightWord(activeWord, activeWordIndex, this.activeParagraph);
 						// index++;
 					};
 
-					console.log('Utterance ready to speak:', utterance);
 					synth.speak(utterance);
 				}
 
