@@ -21,7 +21,7 @@
 						</div>
 						<!-- <responsive-image v-if="post.featured_media" :media-id="post.featured_media"
 							:sizes="'(max-width: 1200px) 100vw, 1200px'" /> -->
-						<div ref="textToRead" v-html="post.content.rendered" @dblclick="getSelText"></div>
+						<div ref="textToRead" class="paragraphs" v-html="post.content.rendered" @dblclick="getSelText"></div>
 						<brief-definition :item="briefDefinition" @show="toggleDefinition" />
 						<div class="text-caption pt-4 d-flex justify-space-between">
 							<post-taxonomies :post="post" />
