@@ -40,13 +40,9 @@
 	background-color: var(--background-color);
 	color: var(--text-color);
   }
-  .paragraphs {
-	font-size: 18px;
-	line-height: 24px;
-	a {
-		display: inline;
-	}
-  }
+
+
+
   .v-application {
 	.container, section {
 		background-color: var(--background-color);
@@ -60,6 +56,7 @@
 	}
 	.header{
 		color:var(--link-color) !important;
+
 	}
 	.site-branding{
 		span{
@@ -166,10 +163,47 @@ section {
 			overflow-wrap: normal;
 			word-break: normal;
 			display: block;
-			width: 200px;
 		}
 		&__card{
 			height: 300px;
+			display: flex;
 		}
 	}
+	&-meta{
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+	}
 }
+
+@media (max-width: 767px) {
+.post-item__card {
+	height: auto;
+	display: block;
+}
+}
+
+.responsive-image {
+	float:left;
+	padding-right:10px;
+	padding-bottom: 10px;
+	width: 200px;
+	height: 100%;
+
+	img{
+		height: 100%;
+		width: auto;
+		display: block;
+	}
+  }
+  @media (max-width: 767px) {
+	.responsive-image {
+		height: auto;
+		width: 100%;
+
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+  }

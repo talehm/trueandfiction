@@ -7,20 +7,20 @@
 					<p v-else class="text-h5 pa-2 text-center font-weight-black">{{ title }}</p>
 				</template>
 				<v-row no-gutters class="">
-					<v-col md="2" sm="2" cols="12" v-if="!isList && !isMobile">
+					<v-col md="2" sm="2" cols="12" v-if="!isMobile">
 						<slot name="top-left"></slot>
-						<v-card class="d-flex align-center justify-center pa-3 ma-2" height="200" width="auto">
+						<!-- <v-card class="d-flex align-center justify-center pa-3 ma-2" height="200" width="auto">
 							<span>Ads</span>
 						</v-card>
 						<v-card class="d-flex align-center justify-center pa-3 ma-2" height="200" width="auto">
 							<span>Ads</span>
-						</v-card>
+						</v-card> -->
 						<slot name="bottom-left"></slot>
 					</v-col>
-					<v-col :md="!isList ? 7 : 9" :sm="!isList ? 7 : 9" cols="12">
+					<v-col :md="!isList || !isMobile ? 7 : 9" :sm="!isList || !isMobile ? 7 : 9" cols="12">
 						<div v-if="(isList && (!items || items.length == 0))">
 							<v-row v-if="isList" >
-								<v-col v-for="n in 3"  cols="12" sm="4" >
+								<v-col v-for="n in 3"  cols="12" sm="12" >
 									<v-skeleton-loader  class="ma-8" v-bind="attrs"
 										type="card"></v-skeleton-loader>
 								</v-col>
@@ -39,7 +39,7 @@
 										<span>Ads</span>
 									</v-card>
 									</v-col> -->
-									<v-col  cols="12" sm="4">
+									<v-col  cols="12" sm="12">
 										<!-- Render the slot content, passing 'item' as a slot prop -->
 										<slot name="list" :item="item"></slot>
 									</v-col>
