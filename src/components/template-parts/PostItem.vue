@@ -1,7 +1,6 @@
 
 <template>
-
-  <v-card
+ <v-card
     :loading="loading"
     elevation="7"
     outlined
@@ -9,13 +8,56 @@
     @click="openArticle(post.link)"
 
   >
-    <!-- <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="20"
-        indeterminate
-      ></v-progress-linear>
-    </template> -->
+    <v-img
+      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      height="200px"
+    ></v-img>
+
+    <v-card-title>
+      {{post.title.rendered}}
+    </v-card-title>
+
+	<v-card-subtitle>
+      <post-meta :post="post" />
+    </v-card-subtitle>
+
+    <v-card-actions>
+      <v-btn
+        color="orange lighten-2"
+        text
+      >
+        Explore
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        icon
+      >
+        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+      </v-btn>
+    </v-card-actions>
+
+    <v-expand-transition>
+      <div >
+        <v-divider></v-divider>
+
+        <v-card-text>
+			<div v-html="post.excerpt.rendered"></div>
+        </v-card-text>
+      </div>
+    </v-expand-transition>
+  </v-card>
+
+  <!-- <v-card
+    :loading="loading"
+    elevation="7"
+    outlined
+    class="ma-2 post-item__card"
+    @click="openArticle(post.link)"
+
+  >
+
 
     <v-card-title>
       <a class="post-item__title" :title="post.title.rendered" v-html="post.title.rendered"></a
@@ -26,12 +68,8 @@
       <post-meta :post="post" />
     </v-card-subtitle>
 
-    <!-- <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text @click="reserve">
-        Reserve
-      </v-btn>
-    </v-card-actions> -->
-  </v-card>
+
+  </v-card> -->
 
 
 </template>

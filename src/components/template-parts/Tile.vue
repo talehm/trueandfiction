@@ -33,12 +33,12 @@
 						<template v-else>
 							<v-row v-if="isList">
 								<template v-for="(item, i) in items" >
-									<v-col  v-if="i == 1" cols="12" sm="4" >
+									<!-- <v-col  v-if="i == 1" cols="12" sm="4" >
 									<v-card class="d-flex align-center justify-center pa-3 mx-2 mb-2 post-item__card"
 										height="100" width="auto">
 										<span>Ads</span>
 									</v-card>
-									</v-col>
+									</v-col> -->
 									<v-col  cols="12" sm="4">
 										<!-- Render the slot content, passing 'item' as a slot prop -->
 										<slot name="list" :item="item"></slot>
