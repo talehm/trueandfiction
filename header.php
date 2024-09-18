@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <?php wp_head(); ?>
 	<meta name="google-adsense-account" content="ca-pub-4645247097169910">
+	<meta name="p:domain_verify" content="c5722b4397f081632ef139517f94e664"/>
 </head>
 
 <body>
