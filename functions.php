@@ -187,7 +187,16 @@ function vue_wordpress_min_read( $content )
     return $time . 'min read';
 }
 
+function custom_page_permalink($post_link, $post) {
+	$post = get_post($post);
 
+    if ($post->post_type == 'page') {
+        $post_link =  home_url( '/page/' . $post->post_name ) ;
+    }
+
+    return $post_link;
+}
+add_filter('page_link', 'custom_page_permalink', 10, 2);
 // function my_shortcode() {
 //     $shortcode_output = '<button id="my-element" v-click="myMethod">Click me!</button>';
 //     return $shortcode_output;

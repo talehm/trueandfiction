@@ -48,6 +48,7 @@
 			</v-row> -->
 		<!-- </v-container> -->
 		<!-- </v-main> -->
+		<Footer/>
 	</v-app>
 </template>
 <script>
@@ -55,12 +56,14 @@ import NavMenu from "@/components/template-parts/NavMenu";
 import SiteLoading from "@/components/utility/SiteLoading";
 import CategoryList from "@/components/CategoryList";
 import Theme from "./components/Theme.vue";
+import Footer from "./components/Footer.vue";
 export default {
 	components: {
 		NavMenu,
 		SiteLoading,
 		CategoryList,
-		Theme
+		Theme,
+		Footer
 	},
 	data() {
 		return {

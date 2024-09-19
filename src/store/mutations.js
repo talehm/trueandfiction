@@ -2,8 +2,10 @@ import Vue from 'vue'
 
 export default {
   ADD_ITEM(state, { type, item }) {
-    console.log(type, "TYPE");
-    if (item && type && ! state[type].hasOwnProperty(item.id)) {
+		console.log(type, "TYPE");
+		console.log(state[type], item, state[type].hasOwnProperty(item.id));
+
+	if (item && type && !state[type].hasOwnProperty(item.id)) {
       Vue.set(state[type], item.id, item)
     }
   },

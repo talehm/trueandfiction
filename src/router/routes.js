@@ -9,7 +9,7 @@ import Single from '@/components/Single'
 import SingleDefinition from '@/components/SingleDefinition'
 import Languages from '@/components/Language';
 
-import Page from '@/components/Page'
+import Page from '@/components/Page';
 // Route paths as formatted in WP permalink settings
 import paths from './paths'
 // Route composition utilities
@@ -84,6 +84,12 @@ export default [
 		path: paths.languages,
 		component: Languages,
 		name: 'Language',
+	},
+	{
+		path: paths.page,
+		component: Page,
+		name: 'Page',
+		props:route => ({ slug: route.params.slug })
 	  },
   {
     path: paths.single,
@@ -96,10 +102,5 @@ export default [
    * This also functions as a catch all redirecting
    * to 404 if a page isn't found with slug prop
    */
-  {
-    path: '/:slugs+',
-    component: Page,
-    name: 'Page',
-    props: route => ({ slug: route.params.slugs.split('/').filter(s => s).pop() })
-  }
+
 ].filter(route => route) // Removes empty route objects

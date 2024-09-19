@@ -25,7 +25,9 @@ export default {
   definition: `/definition${permalink_structure.replace(/\%[a-z_]+\%/g, match => tagToParam[match.slice(1,-1)]).slice(0,-1)}`,
   authorArchive: `${defaultTaxonomyBase}author/:slug/${paginateParam}`,
   categoryArchive: category_base ? `/${category_base}/${tagToParam.category}/${paginateParam}` : `/category/${tagToParam.category}/${paginateParam}`,
-  dateArchive: `${defaultTaxonomyBase}:year(\\d{4})/:month(\\d{2})?/:day(\\d{2})?/${paginateParam}`,
+	dateArchive: `${defaultTaxonomyBase}:year(\\d{4})/:month(\\d{2})?/:day(\\d{2})?/${paginateParam}`,
+	page: `/page${permalink_structure.replace(/\%[a-z_]+\%/g, match => tagToParam[match.slice(1,-1)]).slice(0,-1)}`,
+
   single: `${permalink_structure.replace(/\%[a-z_]+\%/g, match => tagToParam[match.slice(1,-1)]).slice(0,-1)}`,
   tagArchive: tag_base ? `/${tag_base}/:slug/${paginateParam}` : `${defaultTaxonomyBase}tag/:slug/${paginateParam}`,
 	postsPage: (slug) => slug ? `/${slug}/${paginateParam}` : `/${paginateParam}`,
