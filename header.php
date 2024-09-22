@@ -17,6 +17,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <?php wp_head(); ?>
 	<meta name="google-adsense-account" content="ca-pub-4645247097169910">
 	<meta name="p:domain_verify" content="c5722b4397f081632ef139517f94e664"/>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4645247097169910"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
