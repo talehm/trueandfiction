@@ -178,7 +178,7 @@ export default {
 				this.briefDefinition.isOpen = true;
 			} else {
 				this.$store.dispatch("getBriefDefinition", text).then((response) => {
-					if (response.brief !== "" && response.brief != null) {
+					if (response.acf.brief !== "" && response.acf.brief != null) {
 						this.briefDefinition = {
 							content: response,
 							word: text,

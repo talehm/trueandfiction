@@ -64,7 +64,7 @@ export default {
     },
     computed: {
         definitions() {
-            return JSON.parse(this.item.content.brief);
+			return JSON.parse(this.item.content.acf.brief);
         }
     },
     beforeDestroy() {
