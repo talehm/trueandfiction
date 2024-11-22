@@ -8,7 +8,7 @@
 	--title-color:lightgray;
 	--card-text: white;
 	--red-color:rgb(55, 7, 16);
-	--blue-color:rgb(38, 84, 124);
+	--blue-color:rgb(58, 124, 181);
 	--green-color: rgb(0,50,37);
 	--cyan-color: rgb(0,66,70);
 	--purple-color: rgb(45,25,49);
@@ -26,7 +26,7 @@
 	--branding: white;
 	--title-color:darkgray;
 	--red-color:rgba(55, 7, 16, 0.9);
-	--blue-color:rgba(38, 84, 124,0.9);
+	--blue-color:rgb(90 177 254 / 90%) ;
 	--green-color: rgba(0,50,37,0.9);
 	--cyan-color: rgba(0,66,70,0.9);
 	--purple-color: rgba(45,25,49,0.9);
@@ -51,8 +51,8 @@
 	a {
 	color: var(--link-color) !important;
 	}
-	p, span, time{
-		color:var(--text-color) !important;
+	p, span, time, ul, li, h2,h3{
+		color: var(--text-color) !important;
 	}
 	.header{
 		color:var(--link-color) !important;
@@ -190,7 +190,11 @@ section {
 	display: block;
 }
 }
-
+.v-footer  {
+	bottom: 0 !important;
+	position: fixed !important;
+	width: 100% !important;
+}
 .responsive-image {
 	float:left;
 	padding:0;
@@ -214,13 +218,21 @@ section {
 	}
   }
 .paragraphs {
-	font-size: 18px;
-	line-height: 24px;
+	font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.77777778;
+    overflow-wrap: normal;
 	a {
 		display: inline;
+		color: var(--blue-color) !important;
 	}
 	figure {
 		margin: 15px 0;
+	}
+
+	h2 {
+		padding-bottom:5px;
+		padding-top: 20px;
 	}
 }
 .tags {
