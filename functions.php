@@ -191,22 +191,24 @@ function custom_rewrite_rules() {
 }
 add_action('init', 'custom_rewrite_rules');
 
+function custom_rewrite_rules() {
+    add_rewrite_rule('^page/([^/]*)/?', 'index.php?pagename=$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_rules');
+
 function custom_page_permalink($post_link, $post) {
-    if ($post->post_type == 'page') {
+	if (is_int($post)) {
+        $post = get_post($post); // Retrieve the full post object
+    }
+
+    // Ensure we are dealing with a page
+    if ($post && $post->post_type == 'page') {
         return home_url('/page/' . $post->post_name);
     }
     return $post_link;
 }
-// function custom_page_permalink($post_link, $post) {
-// 	$post = get_post($post);
+add_filter('page_link', 'custom_page_permalink', 10, 2);
 
-//     if ($post->post_type == 'page') {
-//         $post_link =  home_url( '/page/' . $post->post_name ) ;
-//     }
-
-//     return $post_link;
-// }
-// add_filter('page_link', 'custom_page_permalink', 10, 2);
 // function my_shortcode() {
 //     $shortcode_output = '<button id="my-element" v-click="myMethod">Click me!</button>';
 //     return $shortcode_output;
