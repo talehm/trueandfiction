@@ -8,7 +8,8 @@
 				</div>
 				<div v-if="isReady" class="">
 					<v-row justify="center">
-						<v-col cols="10" xs="12" sm="2" v-for="n in storyCategories" class="" :key="n.id">
+						<v-col cols="10" xs="12" sm="2" v-for="n in storyCategories" class="" :key="n.id"
+							@click="helpers.fn.open(n.link)">
 							<v-card class="mx-auto" max-width="250">
 								<v-img height="250px"><responsive-image v-if="n.acf.media" :media-id="n.acf.media"
 										:sizes="'(max-width: 250px) 100% 100%'" /></v-img>
