@@ -6,7 +6,8 @@
 					<article v-if="post">
 						<header class="mx-auto pa-8">
 							<span class="text-h4 text--primary font-weight-medium" v-html="content.word"></span><br>
-							<span class="text-subtitle-1 blue-grey--text text--lighten-1">[{{ pronunciation }}]</span>
+							<span v-if="pronunciation" class="text-subtitle-1 blue-grey--text text--lighten-1">[{{
+								pronunciation }}]</span>
 							<v-icon dark @click="playAudio" class="font-size-sm green--text" v-if="audio"> fa4 fa-solid
 								fa-play </v-icon>
 						</header>
@@ -59,6 +60,7 @@ export default {
 		//     return JSON.parse(this.post.details);
 		// },
 		pronunciation() {
+			if (!this.content.pronunciation.all) return;
 			const regex = /u([0-9a-fA-F]{4})/g; // Match 'uXXXX' without backslashes
 			const replaceUnicodeMatches = (match, hexCode) => {
 				// Convert the hexadecimal string (e.g., '026a') to an integer and return the corresponding Unicode character
