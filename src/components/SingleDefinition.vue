@@ -74,8 +74,8 @@ export default {
 			return this.$store.getters.singleBySlug(this.request);
 		},
 		content() {
-			const content = this.post.content.rendered.replaceAll("<p>", "").replaceAll("</p>", "");
-			let decoded = he.decode(content).replaceAll(/[\u2018\u2019]/g, "'").replaceAll(/[\u201C\u201D]/g, '"').replaceAll(/″/g, '"').replaceAll(/[\u2032\u02B9]/g, "'");
+			const content = this.post.content.rendered.replaceAll("<p>", "").replaceAll("</p>", "").trim();
+			let decoded = he.decode(content).replaceAll(/[\u2018\u2019]/g, "'").replaceAll(/[\u201C\u201D]/g, '"').replaceAll(/″/g, '"').replaceAll(/[\u2032\u02B9]/g, "'").trim();
 			return JSON.parse(decoded);
 		},
 		tileCardItems() {

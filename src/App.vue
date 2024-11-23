@@ -127,7 +127,6 @@ export default {
 };
 </script>
 <style>
-/* @import "./assets/css/app.css"; */
 
 .site-branding {
 	display: inline-block;
