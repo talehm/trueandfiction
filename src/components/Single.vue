@@ -1,9 +1,9 @@
 <template>
 	<tile type="article" :article="post" :cardItems="tileCardItems">
 		<template #content>
-			<v-card class="mx-auto ma-2">
+			<v-card class="mx-auto ma-2 pa-2">
 				<!-- <testspeech /> -->
-				<article v-if="post">
+				<article v-if="post" class="mb-16">
 					<v-card-actions class="float-left story-actions">
 						<v-btn v-for="(action, i) in actions" :key="i" elevation="2" small :color="action.color"
 							class="ma-2" @click="handle(action)">
@@ -13,15 +13,13 @@
 					</v-card-actions>
 					<v-card-text class="">
 						<header class="w-100">
-							<p class="text-h4 text-center" v-html="post.title.rendered"></p>
+							<h1 class="text-h3 text-center pa-16" v-html="post.title.rendered"></h1>
 						</header>
 						<post-meta :post="post" />
-						<div class="text-caption pr-4 d-flex justify-space-between">
-							<post-taxonomies :post="post" />
-						</div>
 						<!-- <responsive-image v-if="post.featured_media" :media-id="post.featured_media"
 							:sizes="'(max-width: 1200px) 100vw, 1200px'" /> -->
-						<div ref="textToRead" class="paragraphs" v-html="post.content.rendered" @dblclick="getSelText"></div>
+						<div ref="textToRead" class="paragraphs" v-html="post.content.rendered" @dblclick="getSelText">
+						</div>
 						<brief-definition :item="briefDefinition" @show="toggleDefinition" />
 						<div class="text-caption pt-4 d-flex justify-space-between">
 							<post-taxonomies :post="post" />

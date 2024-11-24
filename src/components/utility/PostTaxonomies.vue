@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <!-- <div
+	<div>
+		<!-- <div
       v-if="post.categories.length"
       class="categories"
     >
@@ -12,15 +12,10 @@
         :archive-id="category"
       />
     </div> -->
-    <div v-if="post.tags.length" class="tags d-flex">
-      <archive-link
-        v-for="tag in post.tags"
-        :key="tag"
-        archive-type="tags"
-        :archive-id="tag"
-      />
-    </div>
-  </div>
+		<div v-if="post.tags.length" class="tags d-flex flex-wrap">
+			<archive-link v-for="tag in post.tags" :key="tag" archive-type="tags" :archive-id="tag" />
+		</div>
+	</div>
 </template>
 
 <script>
