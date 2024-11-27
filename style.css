@@ -124,6 +124,8 @@ h3 {
   -ms-flex-align: start;
   align-items: flex-start;
   white-space: nowrap;
+  float:right;
+  padding-right: 20px;
 }
 .footer-action.footer-action-align {
   -ms-flex-align: center;

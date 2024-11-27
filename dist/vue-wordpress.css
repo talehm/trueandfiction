@@ -30377,13 +30377,13 @@ flex-direction: column;
     user-select: none;
 }
 .footer, a {
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-pack: center;
     justify-content: center;
     -ms-flex-align: start;
     align-items: flex-start;
     white-space: nowrap;
+	float:right;
+  	padding-right: 20px;
 }
 .footer-action.footer-action-align {
     -ms-flex-align: center;
