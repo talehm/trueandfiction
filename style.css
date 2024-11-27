@@ -116,7 +116,7 @@ h3 {
   -ms-user-select: none;
   user-select: none;
 }
-.footer, a {
+.footer a {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
