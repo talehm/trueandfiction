@@ -4,7 +4,7 @@ module.exports = (env = {}) => {
 
 	// Extract the actual environment (e.g., 'prod', 'dev') from env
 	const environment = typeof env === 'object' && Object.keys(env).length > 0
-		? Object.keys(env).find(key => key !== 'WEBPACK_BUNDLE' && key !== 'WEBPACK_BUILD') || 'development'
+		? Object.keys(env).find(key => key !== 'WEBPACK_BUNDLE' && key !== 'WEBPACK_BUILD' && key !== 'WEBPACK_SERVE') || 'development'
 		: 'development';
 
 	// Log the selected environment for confirmation
