@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 // import '@mdi/font/css/materialdesignicons.css'; // Import Material Design Icons
-import '@mdi/font/css/materialdesignicons.css'; // Import Material Design Icons
+// import '@mdi/font/css/materialdesignicons.css'; // Import Material Design Icons
+// Vuetify
+import '@mdi/font/css/materialdesignicons.css'
+// import 'vuetify/styles'
 
 Vue.use(Vuetify)
 

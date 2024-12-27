@@ -1,87 +1,87 @@
 const path = require('path')
 const webpack = require('webpack')
-const VueLoaderPlugin  = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/app.js'),
+	entry: path.resolve(__dirname, 'src/app.js'),
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'vue-wordpress.js'
+	  filename: 'vue-wordpress.js'
   },
   module: {
 	  rules: [
-		{
-			test: /\.(woff|woff2|eot|ttf|otf)$/, // Font file extensions
-			use: [
-				{
-					loader: 'file-loader',
-					options: {
-						name: '[name].[ext]', // Preserve original file name and extension
-						outputPath: 'fonts/',  // Output directory for fonts
-					},
-				},
-			],
+		  {
+			  test: /\.(woff|woff2|eot|ttf|otf)$/, // Font file extensions
+			  use: [
+				  {
+					  loader: 'file-loader',
+					  options: {
+						  name: '[name].[ext]', // Preserve original file name and extension
+						  outputPath: 'fonts/',  // Output directory for fonts
+					  },
+				  },
+			  ],
 		  },
 		  {
-			test: /\.less$/,
-			use: [
-				'style-loader',
-				'css-loader',
-				'less-loader'
-			]
-		},
+			  test: /\.less$/,
+			  use: [
+				  'style-loader',
+				  'css-loader',
+				  'less-loader'
+			  ]
+		  },
       {
         test: /\.s(c|a)ss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            // Requires sass-loader@^7.0.0
-            options: {
-              implementation: require('sass'),
-              indentedSyntax: true // optional
-            },
-            // Requires >= sass-loader@^8.0.0
-            options: {
-              implementation: require('sass'),
-              sassOptions: {
-                indentedSyntax: true // optional
-              },
-            },
-          },
-        ],
+		  use: [
+			  'vue-style-loader',
+			  'css-loader',
+			  {
+				  loader: 'sass-loader',
+				  // Requires sass-loader@^7.0.0
+				  options: {
+					  implementation: require('sass'),
+					  indentedSyntax: true // optional
+				  },
+				  // Requires >= sass-loader@^8.0.0
+				  options: {
+					  implementation: require('sass'),
+					  sassOptions: {
+						  indentedSyntax: true // optional
+					  },
+				  },
+			  },
+		  ],
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+		  loader: 'vue-loader'
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+		  exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
-      }
-    ]
+			  use: [
+				  MiniCssExtractPlugin.loader,
+				  'css-loader'
+			  ]
+		  }
+	  ]
   },
   plugins: [
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'vue-wordpress.css'
-    })
+		filename: 'vue-wordpress.css'
+	})
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
-    },
-    extensions: ['*', '.js', '.vue', '.json']
-  }
+		  '@': path.resolve(__dirname, './src')
+	  },
+		extensions: ['*', '.js', '.vue', '.json']
+	}
 }

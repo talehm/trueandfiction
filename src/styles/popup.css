@@ -3,9 +3,6 @@
 	color: slategray;
 }
 
-
-
-
 .page {
 	position: relative;
 	/* height:100%; */
@@ -22,7 +19,6 @@ flex-direction: column;
 	color: white;
 
 }
-
 
 .page-left .story-title {
 	/* padding:80px 30px; */

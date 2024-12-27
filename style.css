@@ -1,5 +1,5 @@
 /*
-Theme Name:  Vue.wordpress
+Theme Name:  Vue.wordpresSS Active
 Author:      Brandon Shiluk
 Author URI:  https://github.com/bucky355
 Description: Takes a hybrid approach, using Wordpress to manage and serve initial content. Vue.js takes over all future in-site navigation effectively transforming the site into a SPA.
@@ -116,7 +116,7 @@ h3 {
   -ms-user-select: none;
   user-select: none;
 }
-.footer a {
+.footer, a {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;

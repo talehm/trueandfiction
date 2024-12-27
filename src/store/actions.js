@@ -60,6 +60,7 @@ export default {
 			}
 			return fetchItems({ type, params })
 				.then(({ data: items, headers: { 'x-wp-total': total, 'x-wp-totalpages': totalPages } }) => {
+					console.log(items);
 					items.forEach(item => commit('ADD_ITEM', { type, item }))
 					commit('ADD_REQUEST', { type, request: { params, total: parseInt(total), totalPages: parseInt(totalPages), data: items.map(i => i.id) } })
 					if (showLoading) {
