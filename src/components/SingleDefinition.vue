@@ -60,13 +60,13 @@ export default {
 		//     return JSON.parse(this.post.details);
 		// },
 		pronunciation() {
-			if (!this.content.pronunciation.all) return;
+			if (!this.content?.pronunciation?.all) return;
 			const regex = /u([0-9a-fA-F]{4})/g; // Match 'uXXXX' without backslashes
 			const replaceUnicodeMatches = (match, hexCode) => {
 				// Convert the hexadecimal string (e.g., '026a') to an integer and return the corresponding Unicode character
 				return String.fromCharCode(parseInt(hexCode, 16));
 			}
-			return this.content.pronunciation.all.replace(regex, replaceUnicodeMatches);
+			return this.content.pronunciation?.all.replace(regex, replaceUnicodeMatches);
 		},
 		audio() {
 			if (this.content.audio === "") return;

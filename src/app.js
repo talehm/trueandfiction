@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import tools from './tools'
 import vuetify from './plugins/vuetify' // path to vuetify export
-import './styles/popup.css';
+// import './styles/popup.css';
 import './styles/styles.less';
 import Theme from './components/Theme.vue'; // Path to your theme switcher component
 import helpers from "./_helpers";
@@ -12,7 +12,7 @@ import helpers from "./_helpers";
 
 new Vue({
   el: '#app',
-  vuetify,
+	vuetify,
   render: h => h(App),
   router,
 	store,
