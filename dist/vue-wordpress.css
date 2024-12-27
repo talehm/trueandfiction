@@ -229,8 +229,8 @@ a {
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
-  src: url(a2abc9c944c48139f361.eot?v=7.4.47);
-  src: url(a2abc9c944c48139f361.eot?#iefix&v=7.4.47) format("embedded-opentype"), url(8c9e4bb7edede879310e.woff2?v=7.4.47) format("woff2"), url(ea5b4187c7d3276d80ad.woff?v=7.4.47) format("woff"), url(f0f49284f1a83efbf8c2.ttf?v=7.4.47) format("truetype");
+  src: url([object Module]);
+  src: url("[object Module]?#iefix&v=7.4.47") format("embedded-opentype"), url([object Module]) format("woff2"), url([object Module]) format("woff"), url([object Module]) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
